@@ -26,9 +26,8 @@
 }
     
 .ld-login >.ld-wrapper >.ld-header >.wrapper >.image-wrapper >.image{
-    height: 5%;
+    height: 100%;
 }
-
 
 .ld-login >.ld-wrapper >.main-content{
     display: grid;
