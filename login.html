@@ -40,6 +40,10 @@
     <link rel="stylesheet" href="style/pages/login.css">
 
     <!-- TRUMPS -->
+    
+    <!-- SCRIPTS -->
+    <script src="scripts/login.js"></script>
+
 </head>
 
 <body>
@@ -54,10 +58,7 @@
             </header>
 
             <main class="main-content">
-                <div class="left">
-
-                    <span class="steps"> Passo 1 de 2</span>
-
+                <form class="left" onsubmit="cadastrar()" action="javascript:void(0)">
                     <h1 class="main-title">
                         <span class="up">Olá!</span>
                         <span class="down"> Vamos criar seu cadastro.</span>
@@ -65,27 +66,29 @@
                     
                     <div class="radio-buttons">
                         <h3 class="title">Qual o seu perfil?</h3>
-                        <label class="ld-radio">
-                            Dev
-                            <input name="cargo" type="radio"> 
-                            <span class="checkmark"></span>
-                        </label>
-                        
-                        <label class="ld-radio">
-                            Cliente
-                            <input name="cargo" type="radio"> 
-                            <span class="checkmark"></span>
-                        </label> 
+                        <div class="buttons">
+                            <label class="ld-radio">
+                                Dev
+                                <input name="role" type="radio"> 
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <label class="ld-radio">
+                                Cliente
+                                <input name="role" type="radio"> 
+                                <span class="checkmark"></span>
+                            </label> 
+                        </div>
                     </div>
                         
-                    <input class="ld-input" placeholder="Nome completo">
-                    <input type="date" class="ld-input" placeholder="Data de nascimento">
-                    <input type="email" class="ld-input" placeholder="Email">
-                    <input type="password" class="ld-input" placeholder="Senha">
+                    <input required id="fullName" class="ld-input" placeholder="Nome completo">
+                    <input required id="birthdate" type="date" class="ld-input" placeholder="Data de nascimento">
+                    <input required id="email" type="email" class="ld-input" placeholder="Email">
+                    <input required id="password" type="password" class="ld-input" placeholder="Senha">
                     
-                    <button class="ld-button">Continuar</button>
+                    <button type="submit" class="ld-button">Continuar</button>
 
-                </div>
+                </form>
                 <div class="right">
                     <img class="image" alt="Fundo de decoração com 3 cubos com fundo gradient das cores do arco-iris" src="assets/image/bg-cubes.png">
                 </div>
