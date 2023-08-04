@@ -30,12 +30,14 @@ function deleteProject(id){
         list = list.filter(project => project.id !== id);
 
         buildTable();
-
     })
 }
 
 function buildTable(){
     document.querySelector("#table-body").innerHTML = '';
+    const idClient = localStorage.getItem('idClient');
+
+    list = list.filter(el => el.idClient === idClient);
 
     list.forEach(el => {
         let template = `
@@ -46,8 +48,8 @@ function buildTable(){
                 </div>
                 <div class="price">R$ ${el.totalCost}</div>
                 <div class="actions">
-                    <span class="edit material-icons" onClick="goToEdit(${el.id})">edit</span>
-                    <span class="delete material-icons" onClick="deleteProject(${el.id})">delete_outline</span>
+                    <span class="edit material-icons" onclick="goToEdit(${el.id})">edit</span>
+                    <span class="delete material-icons" onclick="deleteProject(${el.id})">delete_outline</span>
                 </div>
             </div>
         `
