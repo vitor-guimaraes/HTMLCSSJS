@@ -29,11 +29,13 @@ function createOrEdit() {
         } else {
             alert('Cadastrado com sucesso!');
         }
+
+        window.location.href = "list.html";
     })
 }
 
-window.onload = function(){
-    setScreenTypeTexts()
+window.onload = function() {
+    setScreenTypeTexts();
 }
     function setScreenTypeTexts(){    
     if(screenType == 'create'){
