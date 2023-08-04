@@ -15,7 +15,7 @@ function createOrEdit() {
     }
 
     // Enviar para API
-    fetch(`https://64c99758b2980cec85c25154.mockapi.io/api/projects${screenType === 'edit' ? ('/' + params.id): ''}`, {
+    fetch(`https://64c99758b2980cec85c25154.mockapi.io/api/projects${screenType === 'edit' ? ('/' + params.id) : ''}`, {
         method: screenType === 'edit' ? 'PUT' : 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -36,15 +36,32 @@ function createOrEdit() {
 
 window.onload = function() {
     setScreenTypeTexts();
+    fillInputs();
 }
-    function setScreenTypeTexts(){    
-    if(screenType == 'create'){
-        document.querySelector('#main-title').innerText = 'Cadastrar novo projeto';
-        document.querySelector('#action-button').innerText = 'Cadastrar';
+
+function fillInputs() {
+    if(screenType === 'edit'){
+        fetch(`https://64c99758b2980cec85c25154.mockapi.io/api/projects/${params.id}`)
+        .then(response => response.json())
+        .then(project => {
+            document.querySelector("#title").value = project.title;
+            document.querySelector("#totalCost").value = project.totalCost;
+            document.querySelector("#description").value = project.description;
+        })
+    }
+}
+
+
+function setScreenTypeTexts(){
+    // MODO CRIAR
+    if(screenType == 'create') {
+        document.querySelector('#main-title').innerText = "Vamos cadastrar seu novo projeto!";
+        document.querySelector('#action-button').innerText = "Cadastrar";
     }
 
-    if(screenType == 'edit'){
-        document.querySelector('#main-title').innerText = 'Editar projeto';
-        document.querySelector('#action-button').innerText = 'Salvar';
+    // MODO EDITAR
+    if(screenType == 'edit') {
+        document.querySelector('#main-title').innerText = "Editar projeto";
+        document.querySelector('#action-button').innerText = "Salvar";
     }
 }
